@@ -6,10 +6,11 @@ from pygame.surface import Surface
 from settings import Settings
 from ship import Ship
 
+
 class Bullet(Sprite):
     def __init__(self, ai_settings: Settings, 
                  screen: Surface, ship: Ship) -> None:
-        super().__init__()
+        super(Bullet, self).__init__()
         self.screen = screen
 
         self.rect = pygame.Rect(

@@ -3,13 +3,15 @@ import pygame.image
 from pygame.surface import Surface
 
 from settings import Settings
+import game_functions as gf
+
 
 class Ship():
     def __init__(self, ai_settings: Settings, screen: Surface) -> None:
         self.screen = screen
         self.ai_settings = ai_settings
 
-        self.image = pygame.image.load('images/ship.png')
+        self.image = gf.load_as_surface('images/ship.png')
         self.rect = self.image.get_rect()
         self.screen_rect = screen.get_rect()
 
@@ -22,6 +24,10 @@ class Ship():
 
         self.moving_right = False
         self.moving_left = False
+
+    def center_ship(self) -> None:
+        """Center the ship on the screen"""
+        self.center = self.screen_rect.centerx
 
     def update(self) -> None:
         """Update the ship's position based on the movement flag"""
