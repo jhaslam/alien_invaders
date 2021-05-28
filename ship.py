@@ -1,17 +1,19 @@
 import pygame
 import pygame.image
+from pygame.sprite import Sprite
 from pygame.surface import Surface
 
+import image_functions as img_funs
 from settings import Settings
-import game_functions as gf
 
 
-class Ship():
+class Ship(Sprite):
     def __init__(self, ai_settings: Settings, screen: Surface) -> None:
+        super(Ship, self).__init__()
         self.screen = screen
         self.ai_settings = ai_settings
 
-        self.image = gf.load_as_surface('images/ship.png')
+        self.image = img_funs.load_as_surface('images/ship.png')
         self.rect = self.image.get_rect()
         self.screen_rect = screen.get_rect()
 

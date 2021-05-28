@@ -3,9 +3,8 @@ import pygame.image
 from pygame.sprite import Sprite
 from pygame.surface import Surface
 
+import image_functions as img_funs
 from settings import Settings
-import game_functions as gf
-from ship import Ship
 
 
 class Alien(Sprite):
@@ -14,7 +13,7 @@ class Alien(Sprite):
         self.screen = screen
         self.ai_settings = ai_settings
 
-        self.image = gf.load_as_surface('images/alien.png')
+        self.image = img_funs.load_as_surface('images/alien.png')
         self.rect = self.image.get_rect()
 
         # Start each new alien near the top-left of the screen
@@ -28,8 +27,8 @@ class Alien(Sprite):
         self.screen.blit(self.image, self.rect)
 
     def update(self):
-        self.x += (self.ai_settings.alien_speed_factor 
-                  * self.ai_settings.fleet_direction)
+        self.x += (self.ai_settings.alien_speed_factor
+                   * self.ai_settings.fleet_direction)
         self.rect.x = self.x
 
     def check_edges(self) -> bool:

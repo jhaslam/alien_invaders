@@ -8,14 +8,14 @@ from ship import Ship
 
 
 class Bullet(Sprite):
-    def __init__(self, ai_settings: Settings, 
+    def __init__(self, ai_settings: Settings,
                  screen: Surface, ship: Ship) -> None:
         super(Bullet, self).__init__()
         self.screen = screen
 
         self.rect = pygame.Rect(
-            0, 0, 
-            ai_settings.bullet_width, 
+            0, 0,
+            ai_settings.bullet_width,
             ai_settings.bullet_height)
         self.rect.centerx = ship.rect.centerx
         self.rect.top = ship.rect.top
