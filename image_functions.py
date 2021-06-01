@@ -9,11 +9,11 @@ def load_as_surface(filename: str) -> Surface:
     blitting a surface to a surface, therefore pre-draw all images you
     plan on using onto their own surfaces.
     """
-    image =  pygame.image.load(filename)
+    image = pygame.image.load(filename)
     rect = image.get_rect()
     surface = pygame.Surface((rect.width, rect.height), pygame.SRCALPHA)
-    surface.fill((0,0,0,0))
-    surface.blit(image,rect)
+    surface.fill((0, 0, 0, 0))
+    surface.blit(image, rect)
     return surface
 
 
